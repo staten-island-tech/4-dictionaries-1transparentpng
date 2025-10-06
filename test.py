@@ -1,3 +1,6 @@
+
+
+
 catalog = [
     {
         "index": "1",
@@ -85,13 +88,18 @@ def viewcatalog():
         print(f"Description: ", i["description"])
         print(f"Category: ", i["type"])
         print(" ")
-def viewcart():
-    print("CART ===========")
-    for i in cart:
-        print(cart[i])
-        print("------------------")
-def addtocart():
-    addition = input("Please input the index # of the item you'd like to add to the cart, if any. Type NONE to return to home page.")
-    if addition == catalog(["index"]):
-        cart.append(catalog [])
-ask()
+
+
+
+
+# test thingy
+
+def findLang():
+    response = input("Give me something, and i'll find what language it's written in")
+    tCount = response.count("t", "T")
+    sCount = response.count("s", "S")
+    if tCount > sCount:
+        print("English (probably)")
+    else:
+        print("French (probably)")
+findLang()
