@@ -63,35 +63,64 @@ catalog = [
         "index": "9",
         "itemname": "HP ProDesk 600 G6 Desktop Computer",
         "price": float(159.99),
-        "description": "Intel Core i7 10th Gen 10700, 32GB RAMM, 512GB SSD, Intel UHD Graphics 630",
+        "description": "Intel Core i7 10th Gen 10700, 32GB RAM, 512GB SSD, Intel UHD Graphics 630",
         "type": "Prebuilt PC"
     }
 ]
 
-cart = [] # PUT THE ITEM NUM INTO THE LIST WHEN ADDING TO CART, AND USE THE LIST TO PRINT THE ITEM NAMES
+cart = [] 
 
 print("Welcome to SITHS Micro Center!")
 print(" ")
 print("- Type Catalog to view the items in stock.")
-print("- Type Cart to view your cart and/or put items in it.")
+print("- Type Add To Cart to add items to your cart.")
+print("- Type View Cart to view your cart.")
 def ask():
     answer = input("What would you like to do? >> ")
     if answer == "Catalog":
         viewcatalog()
+    elif answer == "Add To Cart":
+        addtocart()
+    elif answer == "View Cart":
+        viewcart()
     else:
         print("!!! - Couldnt understand prompt; please retype! - !!!")
         ask()
 def viewcatalog():
     for i in catalog:
+        print(f"Item Index:", i["index"])
         print(f"Item Name: ", i["itemname"])
         print(f"Price: ", i["price"])
         print(f"Description: ", i["description"])
         print(f"Category: ", i["type"])
         print(" ")
+    ask()
 def addtocart():
-    add = input("what would u like to add to cart")
+    add = input("Please input the index number of the item you'd like to add to your cart. Type NONE to go to menu. >> ")
+    found = False
+    if add == "NONE":
+        print(" ")
+        print(" ")
+        ask()
     for i in catalog:
-        find = catalog[i]["index"]
-        if find == add:
-            cart.append(i)
+        if i["index"] == add:
+            cart.append(i["itemname"])
+            found = True
+            print("Found your item!")
+            viewcart()
+    if not found:
+        print("Sorry, I could not find your item..")
+def viewcart():
+    print("CART =========")
+    if not cart:
+        print("No items in your cart..")
+    else:
+        for items in cart:
+            print(items)
+            print(" ")
+    print("==============")
+    ask()
+
+ask()
+
 

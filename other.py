@@ -8,4 +8,17 @@ def findLang():
         print("English (probably)")
     else:
         print("French (probably)")
-findLang()
+
+def findLangDiff(x):
+    t = 0
+    s = 0
+    for char in x:
+        if char == "t" or "T":
+            t += 1
+        elif char == "s" or "S":
+            s += 1
+    if t > s:
+        print("English (prob)")
+    else:
+        print("French (prob)")
+findLangDiff("This is a test of my Language Finding script. Hello, World!")
