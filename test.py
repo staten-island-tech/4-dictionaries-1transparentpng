@@ -76,6 +76,7 @@ print(" ")
 print("- Type Catalog to view the items in stock.")
 print("- Type Add To Cart to add items to your cart.")
 print("- Type View Cart to view your cart.")
+
 def ask():
     answer = input("What would you like to do? >> ")
     if answer == "Catalog":
@@ -87,6 +88,7 @@ def ask():
     else:
         print("!!! - Couldnt understand prompt; please retype! - !!!")
         ask()
+
 def viewcatalog():
     for i in catalog:
         print(f"Item Index:", i["index"])
@@ -96,6 +98,7 @@ def viewcatalog():
         print(f"Category: ", i["type"])
         print(" ")
     ask()
+
 def addtocart():
     add = input("Please input the index number of the item you'd like to add to your cart. Type NONE to go to menu. >> ")
     found = False
@@ -112,6 +115,7 @@ def addtocart():
             viewcart()
     if not found:
         print("Sorry, I could not find your item..")
+
 def viewcart():
     total = 0
     print("CART =========")
@@ -125,7 +129,7 @@ def viewcart():
             total += itemprice[price]
         print
     print("==============")
-    print(f"TOTAL: {total}")
+    print(f"TOTAL: ${total}")
     ask()
 
 ask()
