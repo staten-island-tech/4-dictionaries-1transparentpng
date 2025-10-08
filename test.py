@@ -68,7 +68,8 @@ catalog = [
     }
 ]
 
-cart = [] 
+cart = []
+itemprice = [] 
 
 print("Welcome to SITHS Micro Center!")
 print(" ")
@@ -105,20 +106,26 @@ def addtocart():
     for i in catalog:
         if i["index"] == add:
             cart.append(i["itemname"])
+            itemprice.append(i["price"])
             found = True
             print("Found your item!")
             viewcart()
     if not found:
         print("Sorry, I could not find your item..")
 def viewcart():
+    total = 0
     print("CART =========")
     if not cart:
         print("No items in your cart..")
     else:
-        for items in cart:
-            print(items)
+        for price, item in enumerate(cart):
+            print(item)
+            print(itemprice[price])
             print(" ")
+            total += itemprice[price]
+        print
     print("==============")
+    print(f"TOTAL: {total}")
     ask()
 
 ask()
