@@ -12,7 +12,7 @@ def findLang():
 def findLangDiff(x):
     t = 0
     s = 0
-    for char in x:
+    for char in x: # for every character in the given line (x var)
         if char == "t" or "T":
             t += 1
         elif char == "s" or "S":
@@ -21,4 +21,12 @@ def findLangDiff(x):
         print("English (prob)")
     else:
         print("French (prob)")
-findLangDiff("This is a test of my Language Finding script. Hello, World!")
+
+
+def parkingSpaces(spaces,yest,today):
+    both = 0
+    for i in range(spaces):
+        if (yest[i] == "C" and today[i] == "C"):
+            both += 1
+    return both
+print(parkingSpaces(5, "CCC..", "C.C.C"))
