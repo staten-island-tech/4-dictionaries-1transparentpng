@@ -1,6 +1,3 @@
-
-
-
 catalog = [
     {
         "index": "1",
@@ -133,5 +130,3 @@ def viewcart():
     ask()
 
 ask()
-
-
