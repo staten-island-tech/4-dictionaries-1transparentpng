@@ -25,8 +25,17 @@ def findLangDiff(x):
 
 def parkingSpaces(spaces,yest,today):
     both = 0
-    for i in range(spaces):
-        if (yest[i] == "C" and today[i] == "C"):
-            both += 1
-    return both
-print(parkingSpaces(5, "CCC..", "C.C.C"))
+    for i in range(spaces): # for the number of spaces specified:
+        if (yest[i] == "C" and today[i] == "C"): # if the letter that i is specifying the position of is equal to "C" for both yesterday and today then
+            both += 1 # add 1 to both, meaning there was 1 occupied space both today and yesterday
+    return both # associates the both var with the function after loop is done
+
+
+
+def gradeTest(n,s,a):
+    correct = 0
+    for i in range(n):
+        if s[i] == a[i]:
+            correct += 1
+    return correct
+print(gradeTest(3,"ABC", "ACB"))
