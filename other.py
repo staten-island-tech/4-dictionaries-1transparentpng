@@ -34,8 +34,7 @@ def parkingSpaces(spaces,yest,today):
 
 def gradeTest(n,s,a):
     correct = 0
-    for i in range(n):
-        if s[i] == a[i]:
+    for i in range(n): # didn't add range, but did n(s) instead, which throws an error
+        if s[i] == a[i]: # forgot to add [i] after vars
             correct += 1
     return correct
-print(gradeTest(3,"ABC", "ACB"))
