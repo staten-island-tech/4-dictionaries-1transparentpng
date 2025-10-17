@@ -59,7 +59,7 @@ catalog = [
     {
         "index": "9",
         "itemname": "HP ProDesk 600 G6 Desktop Computer",
-        "price": float(159.99),
+        "price": float(250.99),
         "description": "Intel Core i7 10th Gen 10700, 32GB RAM, 512GB SSD, Intel UHD Graphics 630",
         "type": "Prebuilt PC"
     }
