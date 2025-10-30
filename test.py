@@ -65,68 +65,23 @@ catalog = [
     }
 ]
 
-cart = []
-itemprice = [] 
+cart = {
+    "items": [],
+    "prices": []
+}
 
-print("Welcome to SITHS Micro Center!")
-print(" ")
-print("- Type Catalog to view the items in stock.")
-print("- Type Add To Cart to add items to your cart.")
-print("- Type View Cart to view your cart.")
 
-def ask():
-    answer = input("What would you like to do? >> ")
-    if answer == "Catalog":
-        viewcatalog()
-    elif answer == "Add To Cart":
-        addtocart()
-    elif answer == "View Cart":
-        viewcart()
-    else:
-        print("!!! - Couldnt understand prompt; please retype! - !!!")
-        ask()
-
-def viewcatalog():
-    for i in catalog:
-        print(f"Item Index:", i["index"])
-        print(f"Item Name: ", i["itemname"])
-        print(f"Price: ", i["price"])
-        print(f"Description: ", i["description"])
-        print(f"Category: ", i["type"])
-        print(" ")
-    ask()
-
-def addtocart():
-    add = input("Please input the index number of the item you'd like to add to your cart. Type NONE to go to menu. >> ")
-    found = False
-    if add == "NONE":
-        print(" ")
-        print(" ")
-        ask()
-    for i in catalog:
-        if i["index"] == add:
-            cart.append(i["itemname"])
-            itemprice.append(i["price"])
-            found = True
-            print("Found your item!")
-            viewcart()
-    if not found:
-        print("Sorry, I could not find your item..")
-
-def viewcart():
-    total = 0
-    print("CART =========")
-    if not cart:
-        print("No items in your cart..")
-    else:
-        for price, item in enumerate(cart):
-            print(item)
-            print(itemprice[price])
-            print(" ")
-            total += itemprice[price]
-        print
-    print("==============")
-    print(f"TOTAL: ${total}")
-    ask()
-
-ask()
+for item in catalog:
+    print(f"Item #: {item["index"]}")
+    print(f"Name: {item["itemname"]}")
+    print(f"Price: {item["price"]}")
+    print(f"Description: {item["description"]}")
+    print(f"Category: {item["type"]}")
+    print("")
+while True:
+    ask = input("Please give me the # of the item you want to buy. >> ")
+    for item in catalog:
+        if item["index"] == ask:
+            cart["items"].append(catalog[ask]["itemname"])
+        else:
+            print("Sorry, I could not find what you were looking for.")
