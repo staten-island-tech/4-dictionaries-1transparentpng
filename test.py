@@ -66,8 +66,8 @@ catalog = [
 ]
 
 cart = {
-    "items": [],
-    "prices": []
+        "items": [],
+        "total": 0
 }
 
 
@@ -79,9 +79,23 @@ for item in catalog:
     print(f"Category: {item["type"]}")
     print("")
 while True:
-    ask = input("Please give me the # of the item you want to buy. >> ")
-    for item in catalog:
-        if item["index"] == ask:
-            cart["items"].append(catalog[ask]["itemname"])
-        else:
-            print("Sorry, I could not find what you were looking for.")
+    ask = input("Please give me the # of the item you want to buy. say DONE to complete shopping. >> ")
+    found = False
+    if ask == "DONE":
+        print("Cart ====================")
+        for items in cart["items"]:
+            print(items)
+            print(" ")
+        print(f"Total: {cart["total"]}")
+        print("=========================")
+        break
+    else:
+        for item in catalog:
+            if item["index"] == ask:
+                cart["items"].append(item["itemname"])
+                cart["total"] += item["price"]
+                found = True
+                break
+    
+    if not found:
+        print("Sorry, I could not find what you were looking for.")
